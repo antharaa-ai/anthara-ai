@@ -59,7 +59,7 @@ export default function Projects() {
               "Improved decision confidence"
             ]}
             stack={["FastAPI", "Next.js", "Gemma", "Docker", "FAISS"]}
-            video="/videos/CareBridge.mp4"
+            video="/videos/CareBridge1.mp4"
             dark={false}
           />
 
@@ -93,7 +93,7 @@ export default function Projects() {
               "REST APIs",
               "Docker"
             ]}
-            video="/videos/medicare.mp4"
+            video="/videos/medicare1.mp4"
             reverse
             dark={false}
           />
@@ -127,7 +127,7 @@ export default function Projects() {
               "Python",
               "Docker"
             ]}
-            video="/videos/Alphalens.mp4"
+            video="/videos/Alphalens1.mp4"
             dark={false}
           />
 
@@ -160,7 +160,7 @@ export default function Projects() {
               "JWT",
               "Docker"
             ]}
-            video="/videos/VayuVastra.mp4"
+            video="/videos/VayuVastra1.mp4"
 
             dark={false}
           />
