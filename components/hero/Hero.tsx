@@ -194,7 +194,7 @@ hover:scale-105
 <motion.div
   animate={{
     y: [0, -12, 0],
-    rotate: [0, 2, 0, -2, 0],
+    rotate: [0, 2, 0, -4, 0],
   }}
   transition={{
     duration: 8,

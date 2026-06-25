@@ -32,7 +32,7 @@ export default function Footer() {
           >
             {[
               { label: "LinkedIn", href: "#" },
-              { label: "GitHub", href: "#" },
+              { label: "GitHub", href: "https://github.com/antharaa-ai" },
               { label: "Twitter", href: "#" },
             ].map((s) => (
               <Link
@@ -50,13 +50,13 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-3">
-          <span className="text-white/20 font-bold text-[20px] Satoshi tracking-tighter">ANTHARA</span>
-          <span className="text-white/10">—</span>
-          <p className="text-white/20 text-[11px] tracking-widest uppercase">
+          <span className="text-white/200 font-bold text-[20px] Satoshi tracking-tighter">ANTHARA</span>
+          <span className="text-white/100">—</span>
+          <p className="text-white/200 text-[11px] tracking-widest uppercase">
             AI & Software Engineering Studio
           </p>
         </div>
-        <p className="text-white/20 text-[11px] tracking-widest uppercase Satoshi">
+        <p className="text-white/200 text-[11px] tracking-widest uppercase Satoshi">
           © 2026 · BUILT FOR IMPACT
         </p>
       </div>

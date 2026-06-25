@@ -60,6 +60,7 @@ export default function Projects() {
             ]}
             stack={["FastAPI", "Next.js", "Gemma", "Docker", "FAISS"]}
             video="/videos/CareBridge1.mp4"
+            github="https://github.com/AVP2011/CareBridge_AI"
             dark={false}
           />
 
@@ -94,6 +95,7 @@ export default function Projects() {
               "Docker"
             ]}
             video="/videos/medicare1.mp4"
+            github="https://github.com/Risaabhhhhh/medicare-hub"
             reverse
             dark={false}
           />
@@ -128,6 +130,7 @@ export default function Projects() {
               "Docker"
             ]}
             video="/videos/Alphalens1.mp4"
+            github="https://github.com/Risaabhhhhh/AlphaLens"
             dark={false}
           />
 
@@ -161,6 +164,7 @@ export default function Projects() {
               "Docker"
             ]}
             video="/videos/VayuVastra1.mp4"
+            github="https://github.com/GRINDWUS/VayuVastra"
 
             dark={false}
           />

@@ -75,7 +75,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 * i, duration: 0.5 }}
-                  className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/40 hover:text-white transition-colors duration-300 relative group"
+                  className="text-[12px] uppercase tracking-[0.3em] font-bold text-white/40 hover:text-white transition-colors duration-300 relative group"
                 >
                   {link.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white group-hover:w-full transition-all duration-300" />
@@ -88,7 +88,7 @@ export default function Navbar() {
               href="mailto:contact@anthara.dev"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="bg-white text-black px-7 py-2.5 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-transparent hover:text-white border border-white transition-all duration-300 cursor-pointer"
+              className="bg-white text-black px-7 py-2.5 text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-transparent hover:text-white border border-white transition-all duration-300 cursor-pointer"
             >
               Let's Talk
             </motion.a>

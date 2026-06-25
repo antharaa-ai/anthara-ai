@@ -287,15 +287,15 @@ export default function WhyAnthara() {
       </div>
 
       {/* Metrics */}
-      <div className="max-w-7xl mx-auto px-8 py-40">
+      <div className="max-w-7xl mx-auto px-8 py-20">
         <div className="pt-24 border-t border-white/10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {[
-              { label: "Production Systems", value: "3+" },
-              { label: "Industry Domains", value: "4" },
-              { label: "Engineering Focus", value: "AI" },
-              { label: "Architecture", value: "360" },
-            ].map((metric, i) => (
+  { label: "AI Systems", value: "Production Ready" },
+  { label: "Architecture", value: "Scalable" },
+  { label: "Stack", value: "Full-Stack + ML" },
+  { label: "Focus", value: "Applied AI" },
+].map((metric, i) => (
               <motion.div
                 key={metric.label}
                 initial={{ opacity: 0 }}
@@ -303,10 +303,10 @@ export default function WhyAnthara() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
               >
-                <div className="text-4xl md:text-5xl font-bold Satoshi text-white tracking-tight mb-2">
+                <div className="text-4xl md:text-5xl text-[16px] font-bold Satoshi text-white tracking-tight mb-2">
                   <AnimatedCounter value={metric.value} />
                 </div>
-                <div className="uppercase tracking-[0.25em] text-[10px] font-bold text-white/30">
+                <div className="uppercase tracking-[0.25em] text-[12px] font-bold text-white/30">
                   {metric.label}
                 </div>
               </motion.div>

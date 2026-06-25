@@ -14,18 +14,20 @@ export default function Contact() {
           Tell us about your project.
         </p>
 
-        <button
-          className="
-          mt-12
-          bg-white
-          text-black
-          px-10
-          py-4
-          rounded-full
-          "
-        >
-          Start a Project
-        </button>
+       <a
+  href="#contact"
+  className="
+    inline-flex
+    mt-12
+    bg-white
+    text-black
+    px-10
+    py-4
+    rounded-full
+  "
+>
+  Start a Project
+</a>
       </div>
     </section>
   );

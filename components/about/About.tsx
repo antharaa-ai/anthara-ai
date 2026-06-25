@@ -49,6 +49,7 @@ export default function About() {
               "Healthcare AI",
               "Automation",
             ]}
+            portfolio="https://aryanvp.vercel.app/"
           />
 
           <TeamCard
@@ -61,6 +62,7 @@ export default function About() {
               "Infrastructure",
               "Architecture",
             ]}
+            portfolio="https://rishabhtiwari.vercel.app/"
           />
 
         </div>

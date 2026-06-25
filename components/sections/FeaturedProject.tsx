@@ -17,6 +17,7 @@ interface FeaturedProjectProps {
   video?: string;
   reverse?: boolean;
   dark?: boolean;
+  github?: string;
   themeColor?: "blue" | "green" | "orange" | "purple" | "pink" | "teal" | "yellow" | "cyan" | "lime" | "indigo" | "violet" | "fuchsia" | "rose" | "emerald" | "sky" | "stone" | "neutral" | "slate" | "zinc" | "gray" | "white" | "black";
 }
 
@@ -31,6 +32,7 @@ export default function FeaturedProject({
   impact,
   stack,
   video,
+  github,
   reverse = false,
   dark = true
 }: FeaturedProjectProps) {
@@ -168,6 +170,29 @@ export default function FeaturedProject({
             >
               <source src={video} type="video/mp4" />
             </motion.video>
+            <motion.a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-4 right-4 z-20"
+            >
+              <motion.div
+                whileHover={{
+                  scale: 1.1,
+                }}
+                transition={{
+                  duration: 0.6,
+                }}
+                className="w-12 h-12 bg-white rounded-full flex items-center justify-center"
+              >
+                <Image
+                  src="/github.png"
+                  alt="GitHub"
+                  width={24}
+                  height={24}
+                />
+              </motion.div>
+            </motion.a>
           </motion.div>
           {/* Fallback pattern if image is missing */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.05]">

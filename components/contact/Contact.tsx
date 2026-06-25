@@ -80,7 +80,7 @@ export default function Contact() {
                     <div>
                         <p
                             className="
-                text-[10px]
+                text-[12px]
                 uppercase
                 tracking-[0.4em]
                 text-white/30

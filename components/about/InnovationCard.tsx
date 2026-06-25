@@ -3,6 +3,7 @@ interface Props {
   achievement: string;
   description: string;
   tech: string[];
+  
 }
 
 export default function InnovationCard({
