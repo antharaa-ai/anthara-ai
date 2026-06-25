@@ -59,7 +59,7 @@ export default function Projects() {
               "Improved decision confidence"
             ]}
             stack={["FastAPI", "Next.js", "Gemma", "Docker", "FAISS"]}
-            video="/videos/CareBridge1.mp4"
+            video="/videos/Carebridge1.mp4"
             github="https://github.com/AVP2011/CareBridge_AI"
             dark={false}
           />
@@ -163,7 +163,7 @@ export default function Projects() {
               "JWT",
               "Docker"
             ]}
-            video="/videos/VayuVastra1.mp4"
+            video="/videos/Vayuvastra1.mp4"
             github="https://github.com/GRINDWUS/VayuVastra"
 
             dark={false}
