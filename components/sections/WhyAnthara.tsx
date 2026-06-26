@@ -50,7 +50,7 @@ function Card({ reason, i, total, progress }: CardProps) {
     // Each card gets its OWN sticky wrapper — this is the key
     // h-screen means each card takes up one screen height of scroll
 
-    <div className="h-screen sticky top-0 flex items-center justify-center">
+    <div className="py-4 md:h-screen md:sticky md:top-0 flex items-center justify-center">
       <motion.div
         style={{
           scale,
@@ -68,9 +68,11 @@ border
 border-white/10
 bg-[#0B0B0B]/90
 backdrop-blur-xl
-p-10
+p-6
+sm:p-8
 md:p-16
-min-h-[420px]
+min-h-[320px]
+md:min-h-[420px]
 flex
 flex-col
 justify-center
@@ -98,7 +100,7 @@ hover:shadow-[0_0_80px_rgba(255,255,255,0.05)]
             }
   `}
         />
-        <span className="text-white/20 text-sm font-bold tracking-[0.4em]">
+        <span className="text-white/20 text-xs sm:text-sm font-bold tracking-[0.3em] sm:tracking-[0.4em]">
           {reason.number}
         </span>
         <div className="flex items-center gap-4 mb-8">
@@ -123,10 +125,10 @@ hover:shadow-[0_0_80px_rgba(255,255,255,0.05)]
           <div className="w-20 h-px bg-white/10" />
 
         </div>
-        <h3 className="text-4xl md:text-6xl font-black Satoshi tracking-tight text-white mt-6 mb-8">
+        <h3 className="text-[32px] sm:text-4xl md:text-6xl font-black Satoshi tracking-tight text-white mt-6 mb-6 md:mb-8">
           {reason.title}
         </h3>
-        <p className="text-white/60 text-lg leading-relaxed max-w-3xl">
+        <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-3xl">
           {reason.desc}
         </p>
       </motion.div>
@@ -245,12 +247,12 @@ export default function WhyAnthara() {
         </div>
 
       </div>
-      <div className="max-w-7xl mx-auto px-8 pt-40 pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-40 pb-14 md:pb-24">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="uppercase tracking-[0.4em] text-white/30 text-[10px] font-bold mb-4"
+          className="uppercase tracking-[0.25em] sm:tracking-[0.4em] text-white/30 text-[10px] font-bold mb-4"
         >
           POSITIONING
         </motion.p>
@@ -274,7 +276,7 @@ export default function WhyAnthara() {
         So total height = cards.length * 100vh.
         Card 1 sticks, card 2 scrolls up and sticks on top, etc.
       */}
-      <div ref={containerRef} className="px-8">
+      <div ref={containerRef} className="px-4 sm:px-6 lg:px-8">
         {reasons.map((reason, i) => (
           <Card
             key={reason.title}
@@ -287,9 +289,9 @@ export default function WhyAnthara() {
       </div>
 
       {/* Metrics */}
-      <div className="max-w-7xl mx-auto px-8 py-20">
-        <div className="pt-24 border-t border-white/10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <div className="pt-14 md:pt-24 border-t border-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
   { label: "AI Systems", value: "Production Ready" },
   { label: "Architecture", value: "Scalable" },
@@ -303,10 +305,10 @@ export default function WhyAnthara() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
               >
-                <div className="text-4xl md:text-5xl text-[16px] font-bold Satoshi text-white tracking-tight mb-2">
+                <div className="text-[26px] md:text-5xl font-bold Satoshi text-white tracking-tight mb-2">
                   <AnimatedCounter value={metric.value} />
                 </div>
-                <div className="uppercase tracking-[0.25em] text-[12px] font-bold text-white/30">
+                <div className="uppercase tracking-[0.2em] md:tracking-[0.25em] text-[11px] md:text-[12px] font-bold text-white/30">
                   {metric.label}
                 </div>
               </motion.div>

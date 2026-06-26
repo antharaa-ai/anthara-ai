@@ -39,6 +39,7 @@ export default function MagneticButton({
 
   return (
     <motion.button
+      type="button"
       ref={ref}
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 200, damping: 20, mass: 0.5 }}

@@ -12,15 +12,15 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" className="py-40 bg-[#FFFFFF]">
-      <div className="max-w-7xl mx-auto px-8">
+    <section id="process" className="py-24 md:py-40 bg-[#FFFFFF]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="mb-24">
+        <div className="mb-14 md:mb-24">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="uppercase tracking-[0.4em] text-black/30 text-[16px] font-bold mb-4"
+            className="uppercase tracking-[0.25em] sm:tracking-[0.4em] text-black/30 text-[12px] sm:text-[16px] font-bold mb-4"
           >
             OUR PROCESS
           </motion.p>
@@ -35,7 +35,7 @@ export default function Process() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 md:gap-y-20">
           {steps.map((step, i) => (
             <motion.div
               key={step.id}
@@ -45,7 +45,7 @@ export default function Process() {
               transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="group relative"
             >
-              <div className="border-t border-black/10 pt-10 group-hover:border-black transition-colors duration-500">
+              <div className="border-t border-black/10 pt-7 md:pt-10 group-hover:border-black transition-colors duration-500">
                 <span className="text-[12px] font-bold tracking-widest text-black/20 group-hover:text-black group-hover:scale-125 inline-block transition-all duration-500">
                   {step.id}
                 </span>

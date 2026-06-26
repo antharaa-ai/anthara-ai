@@ -49,17 +49,17 @@ export default function FeaturedProject({
   const imageY = useTransform(scrollYProgress, [0, 1], ["4%", "-4%"]);
 
   return (
-    <div ref={containerRef} className={`flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"} gap-16 py-24 items-center relative`}>
+    <div ref={containerRef} className={`flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"} gap-10 lg:gap-16 py-12 md:py-24 items-center relative`}>
 
       {/* Massive Background Watermark Text */}
-      <div className={`absolute top-0 ${reverse ? "right-0" : "left-0"} translate-y-[-20%] select-none pointer-events-none z-0`}>
-        <h4 className={`text-[120px] md:text-[180px] font-black Satoshi tracking-tighter opacity-[0.04] ${textColor}`}>
+      <div className={`absolute top-0 ${reverse ? "right-0" : "left-0"} translate-y-[-20%] select-none pointer-events-none z-0 max-w-full overflow-hidden`}>
+        <h4 className={`text-[64px] sm:text-[100px] md:text-[180px] font-black Satoshi tracking-tighter opacity-[0.04] ${textColor}`}>
           {watermark}
         </h4>
       </div>
 
       {/* Content */}
-      <div className="flex-1 space-y-12 relative z-10">
+      <div className="flex-1 space-y-8 md:space-y-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ export default function FeaturedProject({
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Metadata Bar */}
-          <div className="flex flex-wrap gap-8 mb-12 border-b border-black/5 pb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-8 mb-8 md:mb-12 border-b border-black/5 pb-8 md:pb-10">
             <div>
               <span className={`text-[14px] uppercase tracking-widest ${labelColor} font-bold`}>Industry</span>
               <p className={`text-[16px] font-bold ${textColor} mt-1`}>{industry}</p>
@@ -88,18 +88,18 @@ export default function FeaturedProject({
             whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className={`text-[32px] md:text-[48px] font-bold mb-10 Satoshi uppercase tracking-tighter leading-none ${textColor}`}
+            className={`text-[30px] sm:text-[36px] md:text-[48px] font-bold mb-8 md:mb-10 Satoshi uppercase tracking-tighter leading-none ${textColor}`}
           >
             {title}
           </motion.h3>
 
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             <div>
               <h4 className={`text-[14px] uppercase tracking-[0.3em] ${labelColor} font-bold mb-4`}>The Challenge</h4>
-              <p className={`${subTextColor} text-[18px] leading-relaxed max-w-lg font-medium`}>{challenge}</p>
+              <p className={`${subTextColor} text-[16px] md:text-[18px] leading-relaxed max-w-lg font-medium`}>{challenge}</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
               <div>
                 <h4 className={`text-[14px] uppercase tracking-[0.3em] ${labelColor} font-bold mb-4`}>The Solution</h4>
                 <p className={`${subTextColor} text-[15px] leading-relaxed`}>{solution}</p>
@@ -174,7 +174,7 @@ export default function FeaturedProject({
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute bottom-4 right-4 z-20"
+              className="absolute bottom-3 right-3 md:bottom-4 md:right-4 z-20"
             >
               <motion.div
                 whileHover={{
@@ -183,7 +183,7 @@ export default function FeaturedProject({
                 transition={{
                   duration: 0.6,
                 }}
-                className="w-12 h-12 bg-white rounded-full flex items-center justify-center"
+                className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center"
               >
                 <Image
                   src="/github.png"

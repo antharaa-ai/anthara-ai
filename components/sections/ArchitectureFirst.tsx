@@ -23,18 +23,18 @@ const pillars = [
 
 export default function ArchitectureFirst() {
   return (
-    <section className="py-40 bg-[#050505] relative overflow-hidden">
+    <section className="py-24 md:py-40 bg-[#050505] relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/[0.02] blur-[150px] -translate-y-1/2 translate-x-1/2 rounded-full" />
 
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        <div className="mb-24">
+        <div className="mb-14 md:mb-24">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="uppercase tracking-[0.4em] text-white/30 text-[16px] font-bold mb-4"
+            className="uppercase tracking-[0.25em] sm:tracking-[0.4em] text-white/30 text-[12px] sm:text-[16px] font-bold mb-4"
           >
             ENGINEERING DEPTH
           </motion.p>
@@ -59,7 +59,7 @@ export default function ArchitectureFirst() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 1 }}
-              className="bg-[#050505] p-12 md:p-16 hover:bg-white/[0.02] transition-colors duration-500 group"
+              className="bg-[#050505] p-6 sm:p-10 md:p-16 hover:bg-white/[0.02] transition-colors duration-500 group"
             >
               <h3 className="text-[20px] md:text-[24px] font-bold text-white mb-6 group-hover:Satoshi transition-all">
                 {pillar.title}

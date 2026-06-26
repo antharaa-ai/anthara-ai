@@ -19,15 +19,15 @@ const categories = [
 
 export default function Technologies() {
   return (
-    <section id="technologies" className="py-40 bg-[#050505] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-8 relative z-10 text-center">
+    <section id="technologies" className="py-24 md:py-40 bg-[#050505] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
 
-        <div className="mb-24">
+        <div className="mb-14 md:mb-24">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="uppercase tracking-[0.4em] text-white/30 text-[16px] font-bold mb-4"
+            className="uppercase tracking-[0.25em] sm:tracking-[0.4em] text-white/30 text-[12px] sm:text-[16px] font-bold mb-4"
           >
             ARCHITECTURE
           </motion.p>
@@ -44,7 +44,7 @@ export default function Technologies() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-24 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 lg:gap-24 relative">
           {categories.map((cat, i) => (
             <motion.div
               key={cat.label}
@@ -54,10 +54,10 @@ export default function Technologies() {
               transition={{ delay: i * 0.1, duration: 1 }}
               className="text-left"
             >
-              <div className="text-[14px] uppercase tracking-[0.4em] text-white/30 font-bold mb-10 border-b border-white/5 pb-6">
+              <div className="text-[12px] sm:text-[14px] uppercase tracking-[0.25em] sm:tracking-[0.4em] text-white/30 font-bold mb-6 md:mb-10 border-b border-white/5 pb-5 md:pb-6">
                 {cat.label}
               </div>
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-4 md:gap-6">
                 {cat.tech.map((t, idx) => (
                   <motion.div
                     key={t}
@@ -65,7 +65,7 @@ export default function Technologies() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + (idx * 0.05) }}
-                    className="text-[20px] md:text-[24px] font-bold text-white/70 hover:text-white transition-all cursor-default flex items-center gap-4"
+                    className="text-[18px] md:text-[24px] font-bold text-white/70 hover:text-white transition-all cursor-default flex items-center gap-4"
                   >
                     <span className="w-1 h-1 bg-white/10 rounded-full" />
                     {t}

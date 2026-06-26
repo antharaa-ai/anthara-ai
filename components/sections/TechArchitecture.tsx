@@ -53,7 +53,7 @@ export default function TechArchitecture() {
           <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/10 -translate-x-1/2" />
 
           <div className="space-y-40">
-            {architecture.map((item, i) => (
+            {architecture.map((item) => (
               <motion.div
                 key={item.layer}
                 initial={{ opacity: 0, y: 30 }}

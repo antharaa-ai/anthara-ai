@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -19,9 +20,12 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (current) => {
+    if (isMenuOpen) return;
+
     const diff = current - lastScrollY;
     if (current > 100) {
       setIsScrolled(true);
@@ -48,10 +52,10 @@ export default function Navbar() {
               : "border-b border-white/0 bg-transparent"
           }`}
         >
-          <div className="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center gap-3 group" onClick={() => setIsMenuOpen(false)}>
               <motion.div whileHover={{ rotate: 12 }} transition={{ type: "spring", stiffness: 300 }}>
                 <Image
                   src="/AntharaLogo_converted.svg"
@@ -61,7 +65,7 @@ export default function Navbar() {
                   className="brightness-0 invert"
                 />
               </motion.div>
-              <span className="text-[16px] font-bold tracking-[0.25em]  text-white">
+              <span className="text-[14px] sm:text-[16px] font-bold tracking-[0.2em] sm:tracking-[0.25em] text-white">
                 ANTHARA
               </span>
             </Link>
@@ -88,11 +92,53 @@ export default function Navbar() {
               href="mailto:contact@anthara.dev"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="bg-white text-black px-7 py-2.5 text-[12px] font-bold uppercase tracking-[0.2em] hover:bg-transparent hover:text-white border border-white transition-all duration-300 cursor-pointer"
+              className="hidden sm:inline-flex bg-white text-black px-5 lg:px-7 py-2.5 text-[11px] lg:text-[12px] font-bold uppercase tracking-[0.18em] lg:tracking-[0.2em] hover:bg-transparent hover:text-white border border-white transition-all duration-300 cursor-pointer"
             >
-              Let's Talk
+              Let&apos;s Talk
             </motion.a>
+
+            <button
+              type="button"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
+              onClick={() => setIsMenuOpen((open) => !open)}
+              className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white"
+            >
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
+
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25 }}
+                className="lg:hidden border-t border-white/[0.08] bg-black/95 px-4 pb-5 pt-3 backdrop-blur-2xl"
+              >
+                <div className="flex flex-col">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="min-h-12 border-b border-white/[0.06] py-4 text-[13px] font-bold uppercase tracking-[0.24em] text-white/70 transition-colors hover:text-white"
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                  <a
+                    href="mailto:contact@anthara.dev"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-[12px] font-bold uppercase tracking-[0.2em] text-black"
+                  >
+                    Let&apos;s Talk
+                  </a>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.nav>
       )}
     </AnimatePresence>

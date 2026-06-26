@@ -31,7 +31,7 @@ export default function TeamCard({
     " 
       
     >
-      <div className="relative h-[420px] overflow-hidden">
+      <div className="relative h-[300px] sm:h-[380px] md:h-[420px] overflow-hidden">
         <Image
           src={image}
           alt={name}
@@ -47,13 +47,13 @@ export default function TeamCard({
       </div>
              
 
-      <div className="p-6">
+      <div className="p-5 sm:p-6">
         <h3 className="text-2xl font-semibold">{name}</h3>
 
         <p className="text-white/60 mt-2">{role}</p>
         
 
-       <div className="mt-5 flex items-end justify-between gap-4">
+       <div className="mt-5 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
 
   <div className="flex flex-wrap gap-2">
     {tags.map((tag) => (
@@ -80,6 +80,8 @@ export default function TeamCard({
     rel="noopener noreferrer"
     className="
       shrink-0
+      self-start
+      sm:self-auto
       px-4
       py-2
       rounded-full

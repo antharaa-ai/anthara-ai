@@ -22,15 +22,15 @@ export default function AnimatedCounter({
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [display, setDisplay] = useState("0");
   const { num, suffix } = parseValue(value);
+  const [display, setDisplay] = useState("0");
 
   useEffect(() => {
     if (!isInView || num === 0) {
-      setDisplay(value);
       return;
     }
-    let start = 0;
+
+    let animationFrame = 0;
     const startTime = performance.now();
 
     const tick = (now: number) => {
@@ -40,10 +40,12 @@ export default function AnimatedCounter({
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(eased * num);
       setDisplay(`${current}${suffix}`);
-      if (progress < 1) requestAnimationFrame(tick);
+      if (progress < 1) animationFrame = requestAnimationFrame(tick);
     };
-    requestAnimationFrame(tick);
-  }, [isInView, num, suffix, duration, value]);
+    animationFrame = requestAnimationFrame(tick);
 
-  return <span ref={ref} className={className}>{display}</span>;
+    return () => cancelAnimationFrame(animationFrame);
+  }, [isInView, num, suffix, duration]);
+
+  return <span ref={ref} className={className}>{num === 0 ? value : display}</span>;
 }

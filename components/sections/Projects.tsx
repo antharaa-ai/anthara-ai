@@ -6,7 +6,7 @@ import FeaturedProject from "./FeaturedProject";
 
 export default function Projects() {
   return (
-    <section id="work" className="py-40 bg-[#FFFFFF] relative overflow-hidden">
+    <section id="work" className="py-24 md:py-40 bg-[#FFFFFF] relative overflow-hidden">
 
       {/* Massive Background Watermark */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] aspect-square watermark pointer-events-none opacity-[0.03]">
@@ -18,14 +18,14 @@ export default function Projects() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        <div className="mb-32">
+        <div className="mb-20 md:mb-32">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="uppercase tracking-[0.4em] text-black/30 text-[14px] font-bold mb-4"
+            className="uppercase tracking-[0.25em] sm:tracking-[0.4em] text-black/30 text-[12px] sm:text-[14px] font-bold mb-4"
           >
             SELECTED WORK
           </motion.p>
@@ -42,7 +42,7 @@ export default function Projects() {
           </motion.h2>
         </div>
 
-        <div className="space-y-48">
+        <div className="space-y-28 md:space-y-48">
 
           <FeaturedProject
             title="CareBridge AI"

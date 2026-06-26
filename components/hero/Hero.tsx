@@ -4,21 +4,20 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16 md:pt-28 md:pb-0">
 
       {/* Background Glow */}
 
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 right-0 h-[700px] w-[700px] -translate-y-1/2 rounded-full bg-white/5 blur-[150px]" />
+        <div className="absolute top-1/2 right-0 h-[320px] w-[320px] md:h-[700px] md:w-[700px] -translate-y-1/2 rounded-full bg-white/5 blur-[90px] md:blur-[150px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-8 w-full grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
         {/* LEFT */}
-
         <div className="z-10">
 
-          <span className="uppercase tracking-[0.25em] text-white/50 text-sm">
+          <span className="uppercase tracking-[0.18em] sm:tracking-[0.25em] text-white/50 text-[11px] sm:text-sm">
             AI Research & Innovation
           </span>
 <motion.h1
@@ -30,7 +29,7 @@ export default function Hero() {
   }}
   className="
     mt-6
-    text-6xl
+    text-[clamp(3rem,16vw,5rem)]
     md:text-8xl
     font-bold
     leading-[0.95]
@@ -54,7 +53,8 @@ export default function Hero() {
           <p
             className="
             mt-8
-            text-lg
+            text-base
+            md:text-lg
             text-white/60
             max-w-xl
             leading-relaxed
@@ -65,14 +65,16 @@ export default function Hero() {
             workflows, and scale through technology.
           </p>
 
-          <div className="mt-10 flex gap-4 flex-wrap">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
 
             <button
+              type="button"
               className="
              group
 bg-white
 text-black
-px-8
+px-7
+sm:px-8
 py-4
 rounded-full
 font-medium
@@ -80,16 +82,19 @@ transition-all
 duration-500
 hover:scale-105
 hover:shadow-[0_0_40px_rgba(255,255,255,0.15)]
+min-h-12
             "
             >
               Start a Project
             </button>
 
             <button
+              type="button"
               className="
              border
 border-white/20
-px-8
+px-7
+sm:px-8
 py-4
 rounded-full
 transition-all
@@ -97,6 +102,7 @@ duration-500
 hover:border-white
 hover:bg-white/5
 hover:scale-105
+min-h-12
             "
             >
               View Work
@@ -107,15 +113,19 @@ hover:scale-105
 
 {/* RIGHT */}
 
-<div className="relative flex justify-center items-center min-h-[700px]">
+<div className="relative flex justify-center items-center min-h-[320px] sm:min-h-[420px] lg:min-h-[700px]">
 
   {/* Outer Ring */}
 
   <div
     className="
       absolute
-      h-[700px]
-      w-[700px]
+      h-[300px]
+      w-[300px]
+      sm:h-[420px]
+      sm:w-[420px]
+      lg:h-[700px]
+      lg:w-[700px]
       rounded-full
       border
       border-white/[0.04]
@@ -127,8 +137,12 @@ hover:scale-105
   <div
     className="
       absolute
-      h-[560px]
-      w-[560px]
+      h-[240px]
+      w-[240px]
+      sm:h-[340px]
+      sm:w-[340px]
+      lg:h-[560px]
+      lg:w-[560px]
       rounded-full
       border
       border-white/[0.05]
@@ -140,8 +154,12 @@ hover:scale-105
   <div
     className="
       absolute
-      h-[420px]
-      w-[420px]
+      h-[180px]
+      w-[180px]
+      sm:h-[260px]
+      sm:w-[260px]
+      lg:h-[420px]
+      lg:w-[420px]
       rounded-full
       border
       border-white/[0.08]
@@ -162,7 +180,7 @@ hover:scale-105
 
   {/* Small orbital dots */}
 
-  <div className="absolute h-[700px] w-[700px] animate-spin-slow">
+  <div className="absolute h-[300px] w-[300px] sm:h-[420px] sm:w-[420px] lg:h-[700px] lg:w-[700px] animate-spin-slow">
 
     <div
       className="
@@ -209,7 +227,7 @@ hover:scale-105
     width={420}
     height={500}
     priority
-    className="brightness-0 invert"
+    className="w-[210px] sm:w-[280px] lg:w-[420px] brightness-0 invert"
   />
 </motion.div>
 </div>

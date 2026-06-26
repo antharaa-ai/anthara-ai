@@ -11,19 +11,22 @@ export default function About() {
     <section
       id="about"
       className="
-      py-40
+      py-24
+      md:py-40
       bg-[#050505]
-      px-8
+      px-4
+      sm:px-6
+      lg:px-8
     "
     >
       <div className="max-w-7xl mx-auto">
 
         <FadeUp>
-          <p className="uppercase tracking-[0.25em] text-white/40">
+          <p className="uppercase tracking-[0.2em] sm:tracking-[0.25em] text-sm text-white/40">
             About Anthara
           </p>
 
-          <h2 className="text-6xl font-bold mt-6 max-w-4xl">
+          <h2 className="text-[38px] sm:text-5xl md:text-6xl font-bold mt-6 max-w-4xl leading-tight">
             Built By Engineers Obsessed With Solving Complex Problems.
           </h2>
 
@@ -37,7 +40,7 @@ export default function About() {
 
         {/* Team */}
 
-        <div className="grid lg:grid-cols-2 gap-10 mt-24">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 mt-16 md:mt-24">
 
           <TeamCard
             image="/Aryan.jpg"
@@ -69,8 +72,8 @@ export default function About() {
 
         {/* Story */}
 
-        <div className="mt-24 max-w-4xl">
-          <h3 className="text-4xl font-bold">
+        <div className="mt-16 md:mt-24 max-w-4xl">
+          <h3 className="text-3xl md:text-4xl font-bold">
             Why We Started Anthara
           </h3>
 
@@ -93,7 +96,7 @@ export default function About() {
 
         {/* Metrics */}
 
-        <div className="grid md:grid-cols-5 gap-5 mt-24">
+        <div className="grid sm:grid-cols-2 md:grid-cols-5 gap-5 mt-16 md:mt-24">
 
           <MetricCard
             number="3"
@@ -124,9 +127,9 @@ export default function About() {
 
         {/* Innovation */}
 
-        <div className="mt-32">
+        <div className="mt-20 md:mt-32">
 
-          <h3 className="text-5xl font-bold">
+          <h3 className="text-3xl md:text-5xl font-bold">
             Innovation & Research
           </h3>
 
@@ -134,7 +137,7 @@ export default function About() {
             Building Under Pressure. Delivering Under Constraints.
           </p>
 
-          <div className="grid lg:grid-cols-2 gap-8 mt-16">
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-8 mt-10 md:mt-16">
 
             <InnovationCard
               title="Healthcare AI Challenge"

@@ -60,19 +60,21 @@ export default function Contact() {
             className="
         relative
         bg-[#050505]
-        py-40
+        py-24
+        md:py-40
         overflow-hidden
       "
         >
             <ContactBackground />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-8">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div
                     className="
             grid
             lg:grid-cols-2
-            gap-20
+            gap-12
+            lg:gap-20
             items-center
           "
                 >
@@ -82,7 +84,8 @@ export default function Contact() {
                             className="
                 text-[12px]
                 uppercase
-                tracking-[0.4em]
+                tracking-[0.25em]
+                sm:tracking-[0.4em]
                 text-white/30
                 font-bold
                 mb-6
@@ -93,7 +96,8 @@ export default function Contact() {
 
                         <h2
                             className="
-                text-5xl
+                text-[40px]
+                sm:text-5xl
                 md:text-7xl
                 font-black
                 Satoshi
@@ -113,19 +117,20 @@ export default function Contact() {
                             className="
                 mt-8
                 text-white/60
-                text-lg
+                text-base
+                md:text-lg
                 max-w-xl
                 leading-relaxed
               "
                         >
-                            Tell us what you're trying to automate,
+                            Tell us what you&apos;re trying to automate,
                             scale, or launch.
                             Anthara engineers AI systems,
                             automation platforms, and
                             production-grade software.
                         </p>
 
-                        <div className="mt-10 space-y-4">
+                        <div className="mt-10 space-y-4 text-sm sm:text-base">
 
                             <div className="flex items-center gap-3 text-white/70">
                                 <Mail size={18} />
@@ -151,19 +156,22 @@ export default function Contact() {
                             y: -5,
                         }}
                         className="
-              rounded-[32px]
+              rounded-[24px]
+              md:rounded-[32px]
               border
               border-white/10
               bg-black/50
               backdrop-blur-xl
-              p-8
+              p-5
+              sm:p-8
             "
                     >
                         <p
                             className="
                 text-[10px]
                 uppercase
-                tracking-[0.3em]
+                tracking-[0.22em]
+                sm:tracking-[0.3em]
                 text-white/30
                 font-bold
                 mb-6
@@ -174,7 +182,8 @@ export default function Contact() {
 
                         <h3
                             className="
-                text-3xl
+                text-2xl
+                sm:text-3xl
                 md:text-4xl
                 font-bold
                 Satoshi
@@ -263,6 +272,7 @@ export default function Contact() {
                             />
 
                             <button
+                                type="button"
                                 onClick={handleSubmit}
                                 disabled={loading}
                                 className="
@@ -305,7 +315,7 @@ export default function Contact() {
     "
                                 >
                                     Thank you. Your inquiry has been received.
-                                    We'll review it and get back to you within 24 hours.
+                                    We&apos;ll review it and get back to you within 24 hours.
                                 </div>
                             )}
                         </div>
