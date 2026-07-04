@@ -19,7 +19,7 @@ export default function Footer() {
               href="mailto:contact.anthara@gmail.com"
               className="text-[26px] sm:text-[32px] md:text-[40px] font-bold Satoshi text-white hover:text-white/60 transition-colors tracking-tighter break-all"
             >
-              contact@anthara
+              contact.anthara@gmail.com
             </a>
           </motion.div>
 

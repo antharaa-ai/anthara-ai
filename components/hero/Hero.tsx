@@ -29,7 +29,7 @@ export default function Hero() {
   }}
   className="
     mt-6
-    text-[clamp(3rem,16vw,5rem)]
+    text-[clamp(2.5rem,10.5vw,4.5rem)]
     md:text-8xl
     font-bold
     leading-[0.95]
@@ -42,14 +42,6 @@ export default function Hero() {
   IMPACT.
 </motion.h1>
           
-<motion.p
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{
-    delay: 0.4,
-    duration: 0.8,
-  }}
-></motion.p>
           <p
             className="
             mt-8
@@ -67,61 +59,69 @@ export default function Hero() {
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
 
-            <button
-              type="button"
+            <a
+              href="#contact"
               className="
-             group
-bg-white
-text-black
-px-7
-sm:px-8
-py-4
-rounded-full
-font-medium
-transition-all
-duration-500
-hover:scale-105
-hover:shadow-[0_0_40px_rgba(255,255,255,0.15)]
-min-h-12
-            "
+                group
+                bg-white
+                text-black
+                px-7
+                sm:px-8
+                py-4
+                rounded-full
+                font-medium
+                transition-all
+                duration-500
+                hover:scale-105
+                hover:shadow-[0_0_40px_rgba(255,255,255,0.15)]
+                min-h-12
+                flex
+                items-center
+                justify-center
+                text-center
+              "
             >
               Start a Project
-            </button>
+            </a>
 
-            <button
-              type="button"
+            <a
+              href="#work"
               className="
-             border
-border-white/20
-px-7
-sm:px-8
-py-4
-rounded-full
-transition-all
-duration-500
-hover:border-white
-hover:bg-white/5
-hover:scale-105
-min-h-12
-            "
+                border
+                border-white/20
+                px-7
+                sm:px-8
+                py-4
+                rounded-full
+                transition-all
+                duration-500
+                hover:border-white
+                hover:bg-white/5
+                hover:scale-105
+                min-h-12
+                flex
+                items-center
+                justify-center
+                text-center
+              "
             >
               View Work
-            </button>
+            </a>
 
           </div>
         </div>
 
 {/* RIGHT */}
 
-<div className="relative flex justify-center items-center min-h-[320px] sm:min-h-[420px] lg:min-h-[700px]">
+<div className="relative flex justify-center items-center min-h-[280px] sm:min-h-[420px] lg:min-h-[700px]">
 
   {/* Outer Ring */}
 
   <div
     className="
       absolute
-      h-[300px]
-      w-[300px]
+      h-[260px]
+      w-[260px]
       sm:h-[420px]
       sm:w-[420px]
       lg:h-[700px]
@@ -137,8 +137,8 @@ min-h-12
   <div
     className="
       absolute
-      h-[240px]
-      w-[240px]
+      h-[200px]
+      w-[200px]
       sm:h-[340px]
       sm:w-[340px]
       lg:h-[560px]
@@ -154,8 +154,8 @@ min-h-12
   <div
     className="
       absolute
-      h-[180px]
-      w-[180px]
+      h-[140px]
+      w-[140px]
       sm:h-[260px]
       sm:w-[260px]
       lg:h-[420px]
@@ -180,7 +180,7 @@ min-h-12
 
   {/* Small orbital dots */}
 
-  <div className="absolute h-[300px] w-[300px] sm:h-[420px] sm:w-[420px] lg:h-[700px] lg:w-[700px] animate-spin-slow">
+  <div className="absolute h-[260px] w-[260px] sm:h-[420px] sm:w-[420px] lg:h-[700px] lg:w-[700px] animate-spin-slow">
 
     <div
       className="
@@ -227,7 +227,7 @@ min-h-12
     width={420}
     height={500}
     priority
-    className="w-[210px] sm:w-[280px] lg:w-[420px] brightness-0 invert"
+    className="w-[170px] sm:w-[280px] lg:w-[420px] brightness-0 invert"
   />
 </motion.div>
 </div>

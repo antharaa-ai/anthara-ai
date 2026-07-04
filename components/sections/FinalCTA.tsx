@@ -52,6 +52,7 @@ export default function FinalCTA() {
         >
           <MagneticButton
             strength={0.45}
+            onClick={() => window.location.href = "#contact"}
             className="text-[17px] md:text-[28px] font-bold uppercase tracking-[0.16em] md:tracking-[0.2em] text-white hover:Satoshi transition-all duration-300 group cursor-pointer"
           >
             Start a Project <span className="inline-block group-hover:translate-x-4 transition-transform">→</span>
