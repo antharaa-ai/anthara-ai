@@ -13,10 +13,12 @@ import FinalCTA from "@/components/sections/FinalCTA";
 import About from "@/components/about/About";
 import Contact from "@/components/contact/Contact";
 import Footer from "@/components/sections/Footer";
+import LogoIntro from "@/components/LogoIntro";
 
 export default function Home() {
   return (
     <main className="bg-[#050505] text-white">
+      <LogoIntro />
       <Navbar />
 
       {/* ── ACT 1: VALUE PROPOSITION ─────────────────── */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
@@ -49,14 +49,26 @@ interface CardProps {
 }
 
 function Card({ reason, i, total, progress, isMobile }: CardProps) {
-  // Exact Skiper formula: scale goes from 1 → targetScale over [i * (1/total), 1]
-  const targetScale = Math.max(0.7, 1 - (total - i - 1) * 0.06);
-
-  const scale = useTransform(
-    progress,
-    [i / total, 1],
-    [1, targetScale]
+  // Each card shrinks only within its own scroll segment
+  // (i/total -> (i+1)/total), then holds at that scale — it does not
+  // keep shrinking for the rest of the scroll. This is what makes the
+  // cards stack one at a time instead of all animating toward the end
+  // simultaneously.
+  const targetScale = useMemo(
+    () => Math.max(0.7, 1 - (total - i - 1) * 0.06),
+    [i, total]
   );
+
+  const segmentStart = i / total;
+  const segmentEnd = (i + 1) / total;
+
+  const inputRange = useMemo(
+    () => [segmentStart, segmentEnd],
+    [segmentStart, segmentEnd]
+  );
+  const outputRange = useMemo(() => [1, targetScale], [targetScale]);
+
+  const scale = useTransform(progress, inputRange, outputRange);
 
   if (isMobile) {
     // On mobile: plain card, no sticky, no scale
@@ -68,8 +80,13 @@ function Card({ reason, i, total, progress, isMobile }: CardProps) {
   }
 
   return (
-    // sticky + top-0 h-screen: each card pins to viewport while you scroll
-    <div className="sticky top-0 h-screen flex items-center justify-center">
+    <div
+      className="sticky h-screen flex items-center justify-center"
+      style={{
+        top: `${80 + i * 24}px`,
+        zIndex: i + 1,
+      }}
+    >
       <motion.div
         style={{
           scale,
@@ -95,26 +112,21 @@ function CardInner({
   return (
     <div
       className="
-        relative
-        overflow-hidden
-        w-full
-        rounded-[28px]
-        border border-white/10
-        bg-[#0d0d0d]
+        relative overflow-hidden w-full rounded-[28px]
+        border border-white/10 bg-[#0d0d0d]
         p-8 sm:p-12 md:p-16
         min-h-[340px] md:min-h-[420px]
         flex flex-col justify-center
         shadow-[0_30px_100px_rgba(0,0,0,0.8)]
-        hover:border-white/20
-        transition-colors duration-500
+        hover:border-white/20 transition-colors duration-500
       "
     >
-      {/* Ambient glow top-left */}
+      {/* Ambient glow */}
       <div
         className={`absolute -top-20 -left-20 w-64 h-64 rounded-full blur-[80px] opacity-30 bg-gradient-radial ${reason.glow} to-transparent`}
       />
 
-      {/* Card number — top right */}
+      {/* Card number */}
       <span className="absolute top-8 right-10 text-white/10 text-[11px] font-bold tracking-[0.4em]">
         {reason.number} / {String(total).padStart(2, "0")}
       </span>
@@ -142,7 +154,6 @@ function CardInner({
 }
 
 export default function WhyAnthara() {
-  // The container that useScroll tracks — must be the cards wrapper
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -153,7 +164,6 @@ export default function WhyAnthara() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  // scrollYProgress goes 0→1 over the full height of containerRef
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -161,21 +171,15 @@ export default function WhyAnthara() {
 
   return (
     <section id="why-anthara" className="relative bg-[#050505]">
-
-      {/* ── Background decoration ─────────────────────────── */}
+      {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 opacity-[0.025] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:80px_80px]" />
         <div className="absolute left-[-10%] top-[20%] w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[180px]" />
         <div className="absolute right-[-10%] top-[35%] w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[200px]" />
         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-violet-500/10 rounded-full blur-[180px]" />
-        <div className="absolute inset-0 flex items-center justify-center opacity-[0.02]">
-          <div className="relative w-[900px] h-[900px]">
-            <Image src="/AntharaLogo_converted.svg" alt="" fill className="object-contain" />
-          </div>
-        </div>
       </div>
 
-      {/* ── Section header (scrolls away before sticky kicks in) ─── */}
+      {/* Section header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-40 pb-12 md:pb-20">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -198,18 +202,10 @@ export default function WhyAnthara() {
         </motion.h2>
       </div>
 
-      {/*
-        ── Cards container ─────────────────────────────────────────
-        KEY: This is the element useScroll tracks.
-        On desktop each card is `sticky top-0 h-screen`, so they
-        pin themselves as you scroll through the container's height.
-        The container height = cards * 100vh which gives each card
-        exactly one viewport of scroll room.
-        On mobile: auto height, no sticking.
-      */}
+      {/* Cards container */}
       <div
         ref={containerRef}
-        className="px-4 sm:px-6 lg:px-8"
+        className="relative px-4 sm:px-6 lg:px-8"
         style={
           isMobile
             ? { paddingBottom: "3rem" }
@@ -228,7 +224,7 @@ export default function WhyAnthara() {
         ))}
       </div>
 
-      {/* ── Metrics bar ──────────────────────────────────────────── */}
+          {/* Metrics bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
         <div className="pt-14 md:pt-24 border-t border-white/10">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
