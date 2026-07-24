@@ -15,6 +15,10 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Anthara | AI-First Software Studio",
   description: "Anthara is an AI-first software studio that helps startups and businesses build intelligent digital products, automate workflows, and scale through technology.",
+  icons: {
+    icon: "/Icon.png",
+    apple: "/Icon.png",
+  },
 };
 
 export default function RootLayout({
