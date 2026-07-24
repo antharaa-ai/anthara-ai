@@ -40,7 +40,7 @@ export default function About() {
 
         {/* Team */}
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 mt-16 md:mt-24">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mt-16 md:mt-24">
 
           <TeamCard
             image="/Aryan.jpg"
@@ -49,7 +49,7 @@ export default function About() {
             tags={[
               "AI Systems",
               "Backend Architecture",
-              "Healthcare AI",
+              "ML Engineering",
               "Automation",
             ]}
             portfolio="https://aryanvp.vercel.app/"
@@ -68,7 +68,21 @@ export default function About() {
             portfolio="https://rishabhtiwari.vercel.app/"
           />
 
+          <TeamCard
+            image="/Ravindra2.jpg"
+            name="Ravindra Pathak"
+            role="Founder & Engineer"
+            tags={[
+              "Frontend Developer",
+              "Freelancer",
+              "Backend Architecture",
+              "Full Stack",
+            ]}
+            portfolio="https://Virupathak.vercel.app/"
+          />
+
         </div>
+
 
         {/* Story */}
 
