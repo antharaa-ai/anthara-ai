@@ -16,8 +16,14 @@ export const metadata: Metadata = {
   title: "Anthara | AI-First Software Studio",
   description: "Anthara is an AI-first software studio that helps startups and businesses build intelligent digital products, automate workflows, and scale through technology.",
   icons: {
-    icon: "/Icon.png",
-    apple: "/Icon.png",
+    icon: [
+      { url: "/Icon.png", sizes: "32x32" },
+      { url: "/Icon.png", sizes: "192x192" },
+      { url: "/Icon.png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/Icon.png", sizes: "180x180" },
+    ],
   },
 };
 

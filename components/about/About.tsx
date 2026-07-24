@@ -71,7 +71,7 @@ export default function About() {
           <TeamCard
             image="/Ravindra2.jpg"
             name="Ravindra Pathak"
-            role="Founder & Engineer"
+            role="Co-Founder & Engineer"
             tags={[
               "Frontend Developer",
               "Freelancer",

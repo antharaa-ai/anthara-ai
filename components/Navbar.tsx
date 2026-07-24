@@ -60,8 +60,8 @@ export default function Navbar() {
                 <Image
                   src="/AntharaLogo_converted.svg"
                   alt="Anthara"
-                  width={22}
-                  height={22}
+                  width={30}
+                  height={30}
                   className="brightness-0 invert"
                 />
               </motion.div>
